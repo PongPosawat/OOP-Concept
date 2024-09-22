@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การเปรียบเทียบการเขียนโปรแกรม OOP ใน Java, C++, Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .code-block {
+            background-color: #f0f8ff;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            font-family: "Courier New", monospace;
+        }
+        .comparison-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        ul {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>การเปรียบเทียบการเขียนโปรแกรม OOP ใน Java, C++, Python</h1>
+
+    <h2>I. ผลรันของโปรแกรมในแต่ละภาษา</h2>
+
+    <h3>Java</h3>
+    <div class="code-block">
+        // Class Animal<br>
+        class Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public Animal() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("create animal");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public void sound() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("animal makes a sound");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;protected void finalize() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("delete animal");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+        <br>
+        // Class Dog extends Animal<br>
+        class Dog extends Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public Dog() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("dog");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;@Override<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public void sound() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("dog barks");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;protected void finalize() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("delete dog");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br><br>
+        // Main Class<br>
+        public class Main {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal a = new Animal();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dog d = new Dog();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+    </div>
+
+    <h3>C++</h3>
+    <div class="code-block">
+        #include &lt;iostream&gt;<br>
+        using namespace std;<br><br>
+        // Class Animal<br>
+        class Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal() { cout &lt;&lt; "create animal" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual ~Animal() { cout &lt;&lt; "delete animal" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual void sound() { cout &lt;&lt; "animal makes a sound" &lt;&lt; endl; }<br>
+        };<br><br>
+        // Class Dog extends Animal<br>
+        class Dog : public Animal {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dog() { cout &lt;&lt; "dog" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Dog() { cout &lt;&lt; "delete dog" &lt;&lt; endl; }<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void sound() override { cout &lt;&lt; "dog barks" &lt;&lt; endl; }<br>
+        };<br><br>
+        // Main function<br>
+        int main() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Animal* a = new Animal();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Dog* d = new Dog();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a->sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;d->sound();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;delete a;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;delete d;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+        }<br>
+    </div>
+
+    <h3>Python</h3>
+    <div class="code-block">
+        # Class Animal<br>
+        class Animal:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("create animal")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def sound(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("animal makes a sound")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("delete animal")<br><br>
+        # Class Dog extends Animal<br>
+        class Dog(Animal):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("dog")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def sound(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("dog barks")<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;def __del__(self):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("delete dog")<br><br>
+        # Main function<br>
+        a = Animal()<br>
+        d = Dog()<br>
+        a.sound()<br>
+        d.sound()<br>
+    </div>
+
+    <h2>II. แนวคิด OOP และการเปรียบเทียบกับโค้ด</h2>
+    <div class="comparison-box">
+        <h3>Class</h3>
+        <p>Class คือแม่แบบของออบเจ็กต์ ตัวอย่างได้แก่ `Animal`, `Dog`, `Cat`</p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Object, Instance</h3>
+        <p>Object หรือ Instance คือการสร้างตัวตนจาก Class เช่น ออบเจ็กต์ `a`, `d`, และ `c` ที่สร้างจากคลาส `Animal`, `Dog`, และ `Cat` ตามลำดับ</p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Subclass, Derived Class</h3>
+        <p>Subclass คือคลาสที่สืบทอดจากคลาสแม่ เช่น `Dog` และ `Cat` ที่สืบทอดจาก `Animal`</p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Message</h3>
+        <p>Message คือการส่งคำสั่งไปยังออบเจ็กต์ เช่น `a.sound()`, `d.sound()`</p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Inheritance</h3>
+        <p>Inheritance คือการสืบทอดคุณสมบัติจากคลาสแม่ไปยังคลาสลูก เช่น `Dog` และ `Cat` สืบทอดจาก `Animal`</p>
+    </div>
+
+    <div class="comparison-box">
+        <h3>Polymorphism</h3>
+        <p>Polymorphism คือความสามารถที่ method เดียวกันสามารถทำงานต่างกันใน subclass ต่างๆ เช่น `sound()` ใน `Dog` และ `Cat`</p>
+    </div>
+
+    <h2>III. Abstract Class</h2>
+    <p>Abstract class คือคลาสที่ไม่สามารถสร้างออบเจ็กต์ได้โดยตรง และมี method ที่ต้อง override ใน subclass ตัวอย่างเช่นการสร้าง abstract class ใน Java, C++, และ Python</p>
+
+</body>
+</html>
